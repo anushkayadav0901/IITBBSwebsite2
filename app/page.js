@@ -1,18 +1,16 @@
 "use client";
 import { useRef } from "react";
-import Footer from "@/components/Character/Experience";
-import FeaturedVideo from "@/components/Featured/FeaturedVideo";
+import dynamic from "next/dynamic";
+
+// Regular imports for components that don't use browser APIs
 import Header from "@/components/Featured/Header";
 import Skiggle from "@/components/Featured/Skiggle";
 import SubHeader from "@/components/Featured/SubHeader";
 import Description from "@/components/Navbar/Description";
 import Navbar from "@/components/Navbar/Navbar";
 import ScrollText from "@/components/Navbar/ScrollText";
-import { Scene } from "@/components/Pipes/CrossPipes";
 import FeaturedWork from "@/components/FeaturedWork/FeaturedWork";
 import Connection from "@/components/ConnectingSection/Connection";
-import Experience from "@/components/Experience/Experience";
-import { Planets } from "@/components/Pipes/Planets";
 import FacilitiesSection from "@/components/FacilitiesSection/FacilitiesSection";
 import RoomsSection from "@/components/RoomsSection/RoomsSection";
 import MessSection from "@/components/MessSection/MessSection";
@@ -20,6 +18,32 @@ import ActivitiesSection from "@/components/ActivitiesSection/ActivitiesSection"
 import GallerySection from "@/components/GallerySection/GallerySection";
 import TestimonialsSection from "@/components/TestimonialsSection/TestimonialsSection";
 import ContactSection from "@/components/ContactSection/ContactSection";
+
+// Dynamic imports for components that might use browser APIs
+const Footer = dynamic(
+  () => import("@/components/Character/Experience"),
+  { ssr: false }
+);
+
+const FeaturedVideo = dynamic(
+  () => import("@/components/Featured/FeaturedVideo"),
+  { ssr: false }
+);
+
+const Scene = dynamic(
+  () => import("@/components/Pipes/CrossPipes").then(mod => ({ default: mod.Scene })),
+  { ssr: false }
+);
+
+const Experience = dynamic(
+  () => import("@/components/Experience/Experience"),
+  { ssr: false }
+);
+
+const Planets = dynamic(
+  () => import("@/components/Pipes/Planets").then(mod => ({ default: mod.Planets })),
+  { ssr: false }
+);
 
 export default function Home() {
   const ref = useRef(null);
