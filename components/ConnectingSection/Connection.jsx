@@ -18,7 +18,7 @@ const Connection = (props) => {
         viewport={{ once: true }}
         transition={{ duration: 2 }}
       >
-        Connecting Ideals to
+        Connecting Students to
       </motion.div>
         {/* <br /> */}
       <motion.div
@@ -28,9 +28,9 @@ const Connection = (props) => {
         viewport={{ once: true }}
         transition={{ duration: 2 }}
       >
-        Uniquely Crafted
+        Opportunities & Community
         <br />
-        Experiences
+        at IIT Bhubaneswar
       </motion.div>
     </motion.div>
   );

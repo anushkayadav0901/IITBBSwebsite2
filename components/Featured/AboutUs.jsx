@@ -32,7 +32,7 @@ const AboutUs = () => {
     >
 
       <a.div style={opacitySpringsReverse} className="opacity-0">➔</a.div>
-      <a.div style={springs}>ABOUT US &nbsp;</a.div>
+      <a.div style={springs}>ABOUT IIT BHUBANESWAR HOSTEL&nbsp;</a.div>
       <a.div style={opacitySprings}>&nbsp;•&nbsp;</a.div>
     </div>
   );

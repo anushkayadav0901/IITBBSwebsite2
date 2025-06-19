@@ -27,7 +27,7 @@ const FeaturedVideo = ({refForward, ...props }) => {
       className="rounded-3xl bg-blue-200 w-[40vw] h-[20rem] absolute top-[600px] left-0 flex items-center justify-center text-4xl text-bold z-30"
       {...props}
     >
-      Featured Video
+      Hostel Tour Video
     </motion.div>
   );
 };

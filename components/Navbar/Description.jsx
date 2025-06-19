@@ -13,9 +13,8 @@ const Description = () => {
       <div className="pt-20 pb-6 lg:hidden">
         <div className="text-3xl  text-[#2B2E3A] font-extrabold leading-7">
           <Trail open={open}>
-            <span>We build epic realtime</span>
-            <span>interactive experience to</span>
-            <span>blow people's minds</span>
+            <span>Welcome to IIT Bhubaneswar Hostel</span>
+            <span>Experience comfort, community, and convenience.</span>
           </Trail>
         </div>
       </div>
@@ -24,9 +23,8 @@ const Description = () => {
       <div className="w-full items-start justify-center hidden lg:flex pt-11 pb-10">
         <div className="text-[2.75rem] w-2/4 text-[#2B2E3A] font-[500] leading-10">
           <Trail open={open}>
-            <span>We build epic realtime</span>
-            <span>interactive experience to</span>
-            <span>blow people's minds</span>
+            <span>Welcome to IIT Bhubaneswar Hostel</span>
+            <span>Experience comfort, community, and convenience.</span>
           </Trail>
         </div>
       </div>

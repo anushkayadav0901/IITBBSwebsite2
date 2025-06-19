@@ -8,6 +8,11 @@ const About = () => {
      <Navbar />
       <Scene/>
       <ScrollText />
+      <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full max-w-2xl text-center px-4">
+        <h1 className="text-5xl font-bold mb-6">About IIT Bhubaneswar Hostel</h1>
+        <p className="text-lg mb-4">IIT Bhubaneswar Hostel is dedicated to providing a safe, comfortable, and vibrant living environment for students. Our hostels are equipped with modern amenities, fostering a sense of community, academic excellence, and personal growth. We believe in holistic development, offering opportunities for sports, cultural activities, and leadership. Our mission is to make every resident feel at home and empowered to achieve their best.</p>
+        <p className="text-lg">Join us and experience a unique blend of tradition, innovation, and camaraderie at IIT Bhubaneswar Hostel.</p>
+      </div>
       <div className="absolute lg:text-[17rem] text-7xl font-extrabold tracking-widest bottom-0 right-1/2 translate-x-1/2 w-auto leading-none">SMATIK</div>
     </div>
   );

@@ -1,62 +1,86 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
-import { animated, useSpring } from "@react-spring/web";
-import { Trail } from "./TrailText";
-
-import LetsTalk from "./LetsTalk";
-import MenuButton from "./MenuButton";
+import React, { useState } from "react";
 import Link from "next/link";
-import MusicButton from "./MusicButton";
-import Image from "next/image";
+
+const navLinks = [
+  { name: "Home", href: "/" },
+  { name: "Facilities", href: "#facilities" },
+  { name: "Rooms", href: "#rooms" },
+  { name: "Mess", href: "#mess" },
+  { name: "Activities", href: "#activities" },
+  { name: "Gallery", href: "#gallery" },
+  { name: "Testimonials", href: "#testimonials" },
+  { name: "Contact", href: "#contact" },
+  { name: "About Us", href: "/about" },
+];
 
 function Navbar() {
-  const [rotate, setRotate] = useSpring(() => ({
-    transform: `rotate(0deg)`,
-    config: { tension: 300, friction: 20, mass: 1 },
-  }));
-
-  const [open, set] = useState(false);
-  useEffect(() => {
-    set(true);
-  }, []);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <>
-      {/* Navbar small screen */}
-      <div className="fixed top-0 left-0 z-50 w-full py-6 lg:hidden px-6">
-        <div className="flex items-center justify-between  w-full font-extrabold pb-2">
-          <div className="tracking-wider font-extrabold text-3xl cursor-pointer">
-            <Link href="/"><Image src={'/smatik_logo.png'} width={'100'} height={'100'}/></Link>
-          </div>
-          <div
-            className="nav_btn_sm flex items-center justify-center cursor-pointer"
-            onMouseEnter={() => setRotate({ transform: "rotate(90deg)" })}
-            onMouseLeave={() => setRotate({ transform: "rotate(0deg)" })}
+    <nav className="fixed top-0 left-0 w-full z-50 bg-white/90 backdrop-blur shadow-lg transition-all duration-300">
+      <div className="max-w-7xl mx-auto flex items-center justify-between px-4 py-3 lg:py-5">
+        <Link href="/" className="text-2xl font-bold tracking-wide text-[#e52d27] hover:text-[#b31217] transition-colors duration-200">
+          IIT Bhubaneswar Hostel
+        </Link>
+        <div className="lg:hidden">
+          <button
+            className="text-3xl text-[#e52d27] focus:outline-none"
+            onClick={() => setMenuOpen((open) => !open)}
+            aria-label="Toggle menu"
           >
-            <animated.div className="text-[0.5rem] " style={rotate}>
-              ⬤ ⬤
-            </animated.div>
-          </div>
+            {menuOpen ? "✕" : "☰"}
+          </button>
         </div>
+        <ul className="hidden lg:flex gap-8 items-center font-semibold text-lg">
+          {navLinks.map((link) => (
+            <li key={link.name}>
+              <Link
+                href={link.href}
+                className="relative px-3 py-2 transition-all duration-200 rounded hover:bg-[#e52d27] hover:text-white focus:bg-[#e52d27] focus:text-white"
+              >
+                {link.name}
+                <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-[#e52d27] transition-all duration-300 group-hover:w-full"></span>
+              </Link>
+            </li>
+          ))}
+        </ul>
       </div>
-
-      {/* Navbar large screen */}
-      <div className="fixed top-0 left-0 w-full px-20 z-50 ">
-        <div className="items-start justify-between hidden lg:flex pt-14 pb-10">
-          <div className="tracking-wider font-AeonikMedium text-4xl">
-            <Link href="/"><Image src={'/smatik_logo.png'} width={'200'} height={'100'}/></Link>
-          </div>
-          <div className="hidden lg:flex items-center justify-around font-AeonikMedium">
-            <Trail open={open} className="flex">
-              <MusicButton />
-              <LetsTalk />
-              <MenuButton />
-            </Trail>
-          </div>
-        </div>
-      </div>
-    </>
+      {/* Mobile menu */}
+      {menuOpen && (
+        <ul className="lg:hidden flex flex-col gap-2 px-4 pb-4 bg-white/95 shadow-md animate-fade-in-down">
+          {navLinks.map((link) => (
+            <li key={link.name}>
+              <Link
+                href={link.href}
+                className="block px-3 py-3 rounded text-lg font-semibold text-[#e52d27] hover:bg-[#e52d27] hover:text-white transition-all duration-200"
+                onClick={() => setMenuOpen(false)}
+              >
+                {link.name}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      )}
+      <style jsx>{`
+        @media (max-width: 1024px) {
+          .animate-fade-in-down {
+            animation: fadeInDown 0.3s;
+          }
+          @keyframes fadeInDown {
+            from {
+              opacity: 0;
+              transform: translateY(-20px);
+            }
+            to {
+              opacity: 1;
+              transform: translateY(0);
+            }
+          }
+        }
+      `}</style>
+    </nav>
   );
 }
 

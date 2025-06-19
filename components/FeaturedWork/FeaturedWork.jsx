@@ -28,11 +28,10 @@ const FeaturedWork = () => {
   return (
     <div className="w-full h-auto">
       <div className="flex w-full justify-between items-center">
-        <div className="text-[9rem]">Featured Work</div>
+        <div className="text-[9rem]">Hostel Highlights</div>
         <div className="text-sm font-semibold">
-          A SELECTION OF OUR MOST PASSIONALITY <br />
-          CRAFTED WORKS WITH FORWARD THINKING
-          <br /> CLIENTS AND FRIENDS OVER THE YEARS
+          Explore the vibrant hostel life, modern facilities, and exciting activities at IIT Bhubaneswar.<br />
+          From annual fests to state-of-the-art amenities, discover what makes our hostels a true home away from home.
         </div>
       </div>
       <div className="relative grid grid-rows-3 grid-cols-1 lg:grid-cols-2 gap-8 perspective-1000 w-full h-auto transform-style-3d">

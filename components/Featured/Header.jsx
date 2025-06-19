@@ -16,12 +16,12 @@ const Header = () => {
     <div className=" text-[9rem] w-full z-10 relative">
       <Trail callback={horizontalCallback}>
         <a.div className="flex" style={horizontal}>
-          <div>Beyond&nbsp;</div>
-          <div>Visions&nbsp;</div>
+          <div>Hostel&nbsp;</div>
+          <div>Life&nbsp;</div>
         </a.div>
         <div className="flex">
-          <div>Within&nbsp;</div>
-          <div>Reach&nbsp;</div>
+          <div>at&nbsp;</div>
+          <div>IIT Bhubaneswar</div>
         </div>
       </Trail>
     </div>
